@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Space Invaders</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section class="panel">
+        <h1>Space Invaders</h1>
+        <canvas id="game" width="800" height="600">
+          Sorry, your browser does not support the HTML5 canvas tag.
+        </canvas>
+        <p class="hud">
+          <span>Move: ← → or A / D</span>
+          <span>Shoot: Space</span>
+          <span>Restart: Enter or button</span>
+        </p>
+        <button id="restart" type="button">Restart Game</button>
+      </section>
+    </main>
+    <script src="game.js"></script>
+  </body>
+</html>
