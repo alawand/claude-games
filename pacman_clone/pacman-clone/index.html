@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Play the classic Pacman game online. No fuss, 100% free.">
+    <title>Pacman - Play Game Instantly!</title>
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="includes/css/core-game-site.css">
+    <link rel="stylesheet" href="includes/css/side-navigation.css">
+    <link rel="stylesheet" href="includes/css/pacman.css">
+    <link rel="stylesheet" href="build/app.css">
+
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Work+Sans:400,600|Press+Start+2P">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body>
+
+<div id="full-page-container">
+
+  <!-- Header Message -->
+  <header>
+    <div id="header-message" class="__text_mode_custom_bg__"></div>
+  </header>
+
+  <!-- Pacman Game Container -->
+  <main>
+    <div id="game-container">
+
+      <img id="backdrop" class="backdrop" src="app/style/graphics/backdrop.png">
+
+      <div id="fps-display" class="fps-display"></div>
+
+      <!-- Preload all sprite images -->
+      <div id="preload-div" class="preload-div">
+        <!-- Pacman sprites -->
+        <img src="app/style/graphics/spriteSheets/characters/pacman/arrow_down.svg">
+        <img src="app/style/graphics/spriteSheets/characters/pacman/arrow_left.svg">
+        <img src="app/style/graphics/spriteSheets/characters/pacman/arrow_right.svg">
+        <img src="app/style/graphics/spriteSheets/characters/pacman/arrow_up.svg">
+        <img src="app/style/graphics/spriteSheets/characters/pacman/pacman_death.svg">
+        <img src="app/style/graphics/spriteSheets/characters/pacman/pacman_error.svg">
+        <img src="app/style/graphics/spriteSheets/characters/pacman/pacman_down.svg">
+        <img src="app/style/graphics/spriteSheets/characters/pacman/pacman_left.svg">
+        <img src="app/style/graphics/spriteSheets/characters/pacman/pacman_right.svg">
+        <img src="app/style/graphics/spriteSheets/characters/pacman/pacman_up.svg">
+
+        <!-- Blinky sprites -->
+        <img src="app/style/graphics/spriteSheets/characters/ghosts/blinky/blinky_down_angry.svg">
+        <img src="app/style/graphics/spriteSheets/characters/ghosts/blinky/blinky_down_annoyed.svg">
+        <img src="app/style/graphics/spriteSheets/characters/ghosts/blinky/blinky_down.svg">
+        <img src="app/style/graphics/spriteSheets/characters/ghosts/blinky/blinky_left_angry.svg">
+        <img src="app/style/graphics/spriteSheets/characters/ghosts/blinky/blinky_left_annoyed.svg">
+        <img src="app/style/graphics/spriteSheets/characters/ghosts/blinky/blinky_left.svg">
+        <img src="app/style/graphics/spriteSheets/characters/ghosts/blinky/blinky_right_angry.svg">
+        <img src="app/style/graphics/spriteSheets/characters/ghosts/blinky/blinky_right_annoyed.svg">
+        <img src="app/style/graphics/spriteSheets/characters/ghosts/blinky/blinky_right.svg">
+        <img src="app/style/graphics/spriteSheets/characters/ghosts/blinky/blinky_up_angry.svg">
+        <img src="app/style/graphics/spriteSheets/characters/ghosts/blinky/blinky_up_annoyed.svg">
+        <img src="app/style/graphics/spriteSheets/characters/ghosts/blinky/blinky_up.svg">
+
+        <!-- Other ghost sprites -->
+        <img src="app/style/graphics/spriteSheets/characters/ghosts/clyde/clyde_down.svg">
+        <img src="app/style/graphics/spriteSheets/characters/ghosts/clyde/clyde_left.svg">
+        <img src="app/style/graphics/spriteSheets/characters/ghosts/clyde/clyde_right.svg">
+        <img src="app/style/graphics/spriteSheets/characters/ghosts/clyde/clyde_up.svg">
+        <img src="app/style/graphics/spriteSheets/characters/ghosts/inky/inky_down.svg">
+        <img src="app/style/graphics/spriteSheets/characters/ghosts/inky/inky_left.svg">
+        <img src="app/style/graphics/spriteSheets/characters/ghosts/inky/inky_right.svg">
+        <img src="app/style/graphics/spriteSheets/characters/ghosts/inky/inky_up.svg">
+        <img src="app/style/graphics/spriteSheets/characters/ghosts/pinky/pinky_down.svg">
+        <img src="app/style/graphics/spriteSheets/characters/ghosts/pinky/pinky_left.svg">
+        <img src="app/style/graphics/spriteSheets/characters/ghosts/pinky/pinky_right.svg">
+        <img src="app/style/graphics/spriteSheets/characters/ghosts/pinky/pinky_up.svg">
+
+        <!-- Ghost eyes and scared -->
+        <img src="app/style/graphics/spriteSheets/characters/ghosts/eyes_down.svg">
+        <img src="app/style/graphics/spriteSheets/characters/ghosts/eyes_left.svg">
+        <img src="app/style/graphics/spriteSheets/characters/ghosts/eyes_right.svg">
+        <img src="app/style/graphics/spriteSheets/characters/ghosts/eyes_up.svg">
+        <img src="app/style/graphics/spriteSheets/characters/ghosts/scared_blue.svg">
+        <img src="app/style/graphics/spriteSheets/characters/ghosts/scared_white.svg">
+
+        <!-- Pickups -->
+        <img src="app/style/graphics/spriteSheets/pickups/pacdot.svg">
+        <img src="app/style/graphics/spriteSheets/pickups/powerPellet.svg">
+        <img src="app/style/graphics/spriteSheets/pickups/apple.svg">
+        <img src="app/style/graphics/spriteSheets/pickups/bell.svg">
+        <img src="app/style/graphics/spriteSheets/pickups/cherry.svg">
+        <img src="app/style/graphics/spriteSheets/pickups/galaxian.svg">
+        <img src="app/style/graphics/spriteSheets/pickups/key.svg">
+        <img src="app/style/graphics/spriteSheets/pickups/melon.svg">
+        <img src="app/style/graphics/spriteSheets/pickups/orange.svg">
+        <img src="app/style/graphics/spriteSheets/pickups/strawberry.svg">
+
+        <!-- Text sprites -->
+        <img src="app/style/graphics/spriteSheets/text/ready.svg">
+        <img src="app/style/graphics/spriteSheets/text/100.svg">
+        <img src="app/style/graphics/spriteSheets/text/200.svg">
+        <img src="app/style/graphics/spriteSheets/text/300.svg">
+        <img src="app/style/graphics/spriteSheets/text/400.svg">
+        <img src="app/style/graphics/spriteSheets/text/500.svg">
+        <img src="app/style/graphics/spriteSheets/text/700.svg">
+        <img src="app/style/graphics/spriteSheets/text/800.svg">
+        <img src="app/style/graphics/spriteSheets/text/1000.svg">
+        <img src="app/style/graphics/spriteSheets/text/1600.svg">
+        <img src="app/style/graphics/spriteSheets/text/2000.svg">
+        <img src="app/style/graphics/spriteSheets/text/3000.svg">
+        <img src="app/style/graphics/spriteSheets/text/5000.svg">
+
+        <!-- Maze -->
+        <img src="app/style/graphics/spriteSheets/maze/maze_blue.svg">
+
+        <!-- Other images -->
+        <img src="app/style/graphics/extra_life.png">
+        <img id="logo" src="app/style/graphics/pacman_logo.png">
+      </div>
+
+      <!-- Loading covers that slide away when game starts -->
+      <div id="left-cover" class="loading-cover left"></div>
+      <div id="right-cover" class="loading-cover right"></div>
+
+      <!-- Main menu with logo and start button -->
+      <div id="main-menu-container" class="main-menu-container" style="opacity: 1; visibility: visible;">
+        <img class="logo" src="app/style/graphics/pacman_logo.png" alt="Pacman Logo">
+        <div id="loading-container" class="loading-container">
+          <div id="loading-pacman" class="loading-pacman"></div>
+          <div id="loading-dot-mask" class="loading-dot-mask"></div>
+          <div class="loading-dot _5"></div>
+          <div class="loading-dot _10"></div>
+          <div class="loading-dot _15"></div>
+          <div class="loading-dot _20"></div>
+          <div class="loading-dot _25"></div>
+          <div class="loading-dot _30"></div>
+          <div class="loading-dot _35"></div>
+          <div class="loading-dot _40"></div>
+          <div class="loading-dot _45"></div>
+          <div class="loading-dot _50"></div>
+          <div class="loading-dot _55"></div>
+          <div class="loading-dot _60"></div>
+          <div class="loading-dot _65"></div>
+          <div class="loading-dot _70"></div>
+          <div class="loading-dot _75"></div>
+          <div class="loading-dot _80"></div>
+          <div class="loading-dot _85"></div>
+          <div class="loading-dot _90"></div>
+          <div class="loading-dot _95"></div>
+        </div>
+        <button id="game-start" class="game-start">PLAY</button>
+      </div>
+
+      <!-- Header buttons for pause and sound -->
+      <div class="header-buttons">
+        <button id="pause-button"><i class="material-icons">pause</i></button>
+        <button id="sound-button"><i class="material-icons">volume_up</i></button>
+      </div>
+
+      <!-- Paused text overlay -->
+      <div id="paused-text" class="paused-text">PAUSED</div>
+
+      <!-- Game UI container for score, maze, lives -->
+      <div id="game-ui" class="game-ui">
+        <div id="row-top" class="row top">
+          <div class="_25 column">
+            <p class="one-up">1UP</p>
+            <p id="points-display">00</p>
+          </div>
+          <div class="_50 column">
+            <p>HIGH SCORE</p>
+            <p id="high-score-display">00</p>
+          </div>
+          <div class="_25 column"></div>
+        </div>
+        <div id="maze" class="maze">
+          <img id="maze-img" class="maze-img" src="app/style/graphics/spriteSheets/maze/maze_blue.svg">
+          <div id="dot-container" class="dot-container"></div>
+          <div id="pacman" class="pacman"></div>
+          <div id="pacman-arrow" class="pacman-arrow"></div>
+          <div id="blinky" class="ghost"></div>
+          <div id="pinky" class="ghost"></div>
+          <div id="inky" class="ghost"></div>
+          <div id="clyde" class="ghost"></div>
+          <div id="maze-cover" class="maze-cover"></div>
+        </div>
+        <div id="bottom-row" class="row bottom">
+          <div id="extra-lives" class="extra-lives"></div>
+          <div id="fruit-display" class="fruit-display"></div>
+        </div>
+      </div>
+
+      <!-- Mobile movement buttons -->
+      <div id="movement-buttons" class="movement-buttons">
+        <div class="row">
+          <button id="button-up" class="button-up"><i class="material-icons">keyboard_arrow_up</i></button>
+        </div>
+        <div class="row">
+          <button id="button-left" class="button-left"><i class="material-icons">keyboard_arrow_left</i></button>
+          <button id="button-right" class="button-right"><i class="material-icons">keyboard_arrow_right</i></button>
+        </div>
+        <div class="row">
+          <button id="button-down" class="button-down"><i class="material-icons">keyboard_arrow_down</i></button>
+        </div>
+      </div>
+
+      <!-- Onscreen controls container -->
+      <div id="onscreen-controls" class="onscreen-controls"></div>
+
+      <!-- Error message display -->
+      <div id="error-message" class="error-message">
+        <div class="header">
+          <span>ERROR</span>
+          <div class="error-pacman"></div>
+        </div>
+        <div class="body">
+          Unable to load game assets. Please check your internet connection and refresh the page.
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+</div>
+
+<!-- JavaScript Files -->
+<script src="includes/js/screenfull.min.js"></script>
+<script src="includes/js/core-game-site.js"></script>
+<script src="build/app.js"></script>
+
+<!-- Initialize the game -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    window.game = new GameCoordinator();
+  });
+</script>
+
+</body>
+</html>
